@@ -1,0 +1,65 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.app {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    user-select: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-section {
+    height: 100%;
+    transition: width 0.5s ease, background-position 0.5s ease;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu-section:not(.active) {
+    cursor: pointer;
+}
+
+.menu-section.active {
+    cursor: default;
+}
+
+.page {
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+h1 {
+    margin: 0;
+}
+
+.text-row {
+    font-size: 3em;
+    display: flex;
+    align-items: flex-start;
+    padding-right: 4em;
+    text-align: end;
+}
+
+.sideways {
+    transform: rotate(-90deg) translateX(-120%);
+    white-space: nowrap;
+    transform-origin: top left;
+}
