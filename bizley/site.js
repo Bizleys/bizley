@@ -17,19 +17,14 @@ class Artist {
 }
 
 class Page {
-    constructor(name, backgroundImage, offset, element) {
+    // ext is optional image extension (including the dot, e.g. '.png').
+    constructor(name, backgroundImage, offset, element, ext = null) {
         this.name = name;
         this.offset = offset;
         this.backgroundImage = backgroundImage;
         this.element = element;
-        // Simple mapping for image extensions (matches files in assets/images)
-        if (backgroundImage === 'bizleys' || backgroundImage === 'matt') {
-            this.imageExt = '.png';
-        } else if (backgroundImage === 'Sam' || backgroundImage === 'sam' || backgroundImage === 'Claire') {
-            this.imageExt = '.jpg';
-        } else {
-            this.imageExt = '.jpg';
-        }
+        // If an explicit extension is provided, use it; otherwise fall back to .jpg
+        this.imageExt = ext || '.jpg';
     }
 }
 
@@ -109,14 +104,20 @@ class Menu {
 
 class App {
     constructor(rootNode) {
-        const bizleysPage = new Page("The Bizleys", "bizleys", 420, document.getElementById("bizleys-page"));
-        const samPage = new Page("Sam", "Sam", 600, document.getElementById("sam-page"));
-        const clairePage = new Page("Claire", "Claire", 500, document.getElementById("claire-page"));
+    const bizleysPage = new Page("The Bizleys", "bizleys", 420, document.getElementById("bizleys-page"), '.png');
+    const samPage = new Page("Sam", "sam", 600, document.getElementById("sam-page"), '.png');
+    const clairePage = new Page("Claire", "Claire", 500, document.getElementById("claire-page"), '.png');
+    const mattPage = new Page("Matt", "Matt", 480, document.getElementById("matt-page"), '.png');
+    const abigailPage = new Page("Abigail", "Abigail", 360, document.getElementById("abigail-page"), '.png');
+    const kyranPage = new Page("Kyran", "Kyran", 520, document.getElementById("kyran-page"), '.png');
 
         const menu = new Menu(rootNode, [
             bizleysPage,
             samPage,
-            clairePage
+            clairePage,
+            mattPage,
+            abigailPage,
+            kyranPage
         ]);
 
         menu.arrange();

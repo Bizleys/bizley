@@ -16,29 +16,12 @@
             min-height: 100vh;
             margin: 0;
             padding: 0;
-            background: #000;
+            background: #e2953e;
         }
         #app {
             flex: 1;
             position: relative;
             overflow: hidden;
-        }
-        /* Hide header/footer in fullscreen mode */
-        body.fullscreen #site-header,
-        body.fullscreen #site-footer {
-            display: none;
-        }
-        .fullscreen-toggle {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1000;
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 0.5rem;
-            cursor: pointer;
-            border-radius: 4px;
         }
         .content {
             padding: 2rem;
@@ -54,9 +37,6 @@
 </head>
 <body>
     <div id="site-header"></div>
-    <button class="fullscreen-toggle" onclick="document.body.classList.toggle('fullscreen')">
-        Toggle Fullscreen
-    </button>
     <div id="app" class="app">
         <div id="bizleys-page" class="page">
             <div class="text-row">
@@ -86,6 +66,31 @@
                 <p>Master craftsman with expertise in custom carpentry and precision installations. 
                    Claire's attention to detail and commitment to excellence shows in every project, 
                    from bespoke furniture to complete home renovations.</p>
+            </div>
+        </div>
+        <div id="matt-page" class="page">
+            <div class="text-row">
+                <h1 class="sideways">Matt</h1>
+            </div>
+            <div class="content">
+                <p>Expert installer and site lead, overseeing onsite teams and ensuring projects run smoothly. 
+                   Matt brings technical expertise and hands-on craftsmanship to every build.</p>
+            </div>
+        </div>
+        <div id="abigail-page" class="page">
+            <div class="text-row">
+                <h1 class="sideways">Abigail</h1>
+            </div>
+            <div class="content">
+                <p>Abigail coordinates client relationships and handles scheduling — keeping projects on track and clients informed at every step.</p>
+            </div>
+        </div>
+        <div id="kyran-page" class="page">
+            <div class="text-row">
+                <h1 class="sideways">Kyran</h1>
+            </div>
+            <div class="content">
+                <p>Kyran is an electricain and rising talent, learning the trade and contributing electricity to our design and build process.</p>
             </div>
         </div>
     </div>

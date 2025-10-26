@@ -109,3 +109,39 @@ nav ul li a.active {
   background-color: #1abc9c;
   border-radius: 5px;
 }
+
+/* Feature blocks: image with adjacent text */
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2em 0;
+}
+
+.feature img {
+  width: 48%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.feature .feature-text {
+  width: 48%;
+}
+
+/* Reverse layout for alternating section (image on right) */
+.feature.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (max-width: 800px) {
+  .feature {
+    flex-direction: column;
+  }
+  .feature img,
+  .feature .feature-text {
+    width: 100%;
+  }
+}
