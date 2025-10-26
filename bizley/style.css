@@ -1,0 +1,128 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    overflow: hidden;
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    user-select: none;
+    display: flex;
+    align-items: stretch;
+}
+
+.hidden {
+    display: none;
+}
+
+.menu {
+    position: relative;
+    flex: 1;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.menu-section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 4em;
+    transition: all 0.5s ease;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.menu-section.active {
+    width: 70%;
+    z-index: 2;
+}
+
+.menu-section .page {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.text-row {
+    margin-bottom: 2rem;
+}
+
+.sideways {
+    transform: rotate(-90deg) translateX(-100%);
+    transform-origin: top left;
+    white-space: nowrap;
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: auto;
+    max-width: 600px;
+}
+
+.menu-section:not(.active) {
+    cursor: pointer;
+}
+
+.menu-section.active {
+    cursor: default;
+}
+
+.page {
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+h1 {
+    margin: 0;
+}
+
+.text-row {
+    font-size: 3em;
+    display: flex;
+    align-items: flex-start;
+    padding-right: 4em;
+    text-align: end;
+}
+
+.sideways {
+    transform: rotate(-90deg) translateX(-90%);
+    white-space: nowrap;
+    transform-origin: top left;
+    position: relative;
+    left: -1.25rem; /* nudge left so it peeks out when overlapped */
+    z-index: 3; /* ensure heading sits above the overlay */
+}

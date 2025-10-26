@@ -1,30 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Our Team</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Bizley</title>
+    <link rel="stylesheet" href="bizley/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        /* Ensure full-height layout with header/footer */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+        #app {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Hide header/footer in fullscreen mode */
+        body.fullscreen #site-header,
+        body.fullscreen #site-footer {
+            display: none;
+        }
+        .fullscreen-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .content {
+            padding: 2rem;
+            max-width: 600px;
+            margin: 2rem;
+            background: rgba(0,0,0,0.7);
+            border-radius: 8px;
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <button id="menu-toggle" aria-label="Toggle navigation">☰</button>
-    <h1>About Our Team</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section>
-      <h2>Who We Are</h2>
-      <p>Bizley Home Improvements has been transforming homes across the UK for over a decade...</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Bizley Home Improvements</p>
-  </footer>
+    <div id="site-header"></div>
+    <button class="fullscreen-toggle" onclick="document.body.classList.toggle('fullscreen')">
+        Toggle Fullscreen
+    </button>
+    <div id="app" class="app">
+        <div id="bizleys-page" class="page">
+            <div class="text-row">
+                <h1 class="sideways">The Bizleys</h1>
+            </div>
+            <div class="content">
+                <p>A family-run business transforming homes across the UK since 2013. 
+                   We bring together expertise in design, craftsmanship, and project management 
+                   to deliver exceptional home improvements.</p>
+            </div>
+        </div>
+        <div id="sam-page" class="page">
+            <div class="text-row">
+                <h1 class="sideways">Sam</h1>
+            </div>
+            <div class="content">
+                <p>Lead designer and project manager with over 15 years of experience. 
+                   Specializes in modern renovations and sustainable solutions. 
+                   Sam ensures every project meets our high standards of quality and innovation.</p>
+            </div>
+        </div>
+        <div id="claire-page" class="page">
+            <div class="text-row">
+                <h1 class="sideways">Claire</h1>
+            </div>
+            <div class="content">
+                <p>Master craftsman with expertise in custom carpentry and precision installations. 
+                   Claire's attention to detail and commitment to excellence shows in every project, 
+                   from bespoke furniture to complete home renovations.</p>
+            </div>
+        </div>
+    </div>
+    <div id="site-footer"></div>
+    <script src="script.js"></script>
+    <script src="bizley/site.js"></script>
+    <script>
+        function initApp() {
+            console.log("Initializing App...");
+            if (typeof App !== 'undefined') {
+                console.log("Creating new App instance");
+                new App(document.getElementById('app'));
+            } else {
+                console.log("App not found, retrying in 100ms...");
+                setTimeout(initApp, 100);
+            }
+        }
+
+        // Initialize the app after everything is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
 </body>
 </html>
