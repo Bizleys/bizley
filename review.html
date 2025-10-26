@@ -10,14 +10,141 @@
     <div id="site-header"></div>
   <main>
   <h2>What Our Clients Say</h2>
-  <div class="review">
-    <p>"Bizley transformed our kitchen beyond expectations. Professional and friendly!"</p>
-    <strong>- Sarah, Cambridge</strong>
-  </div>
-  <div class="review">
-    <p>"The garden redesign gave us a whole new outdoor space. Highly recommend."</p>
-    <strong>- Tom, Wisbech</strong>
-  </div>
+  <!-- Review form -->
+  <section class="review-form">
+    <h3>Leave a review</h3>
+    <form id="leave-review">
+      <label>
+        Your name
+        <input type="text" id="reviewer-name" required maxlength="60" />
+      </label>
+      <label>
+        Location (optional)
+        <input type="text" id="reviewer-location" maxlength="60" />
+      </label>
+      <label>
+        Rating
+        <select id="review-rating">
+          <option value="5">★★★★★ 5</option>
+          <option value="4">★★★★ 4</option>
+          <option value="3">★★★ 3</option>
+          <option value="2">★★ 2</option>
+          <option value="1">★ 1</option>
+        </select>
+      </label>
+      <label>
+        Your review
+        <textarea id="review-text" rows="4" required maxlength="1000"></textarea>
+      </label>
+      <div class="form-actions">
+        <button type="submit">Submit review</button>
+        <button type="button" id="clear-reviews">Clear all reviews</button>
+      </div>
+    </form>
+    <div id="review-msg" aria-live="polite"></div>
+  </section>
+
+  <!-- Reviews list -->
+  <section class="reviews-list" id="reviews-list" aria-live="polite">
+    <!-- Reviews are rendered here by JavaScript -->
+  </section>
+
+  <script>
+    (function(){
+      const STORAGE_KEY = 'bizleyReviews_v1';
+
+      function escapeHtml(s){
+        return String(s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function loadReviews(){
+        try{
+          const raw = localStorage.getItem(STORAGE_KEY);
+          return raw ? JSON.parse(raw) : [];
+        }catch(e){
+          console.error('Failed to load reviews', e);
+          return [];
+        }
+      }
+
+      function saveReviews(list){
+        try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); }catch(e){ console.error('Failed to save reviews', e); }
+      }
+
+      function renderReviews(){
+        const container = document.getElementById('reviews-list');
+        const reviews = loadReviews();
+        if(!container) return;
+        if(reviews.length === 0){
+          container.innerHTML = '<p class="muted">No reviews yet — be the first to leave one.</p>';
+          return;
+        }
+        container.innerHTML = reviews.map((r, idx) => {
+          const loc = r.location ? (' — ' + escapeHtml(r.location)) : '';
+          const stars = '★'.repeat(r.rating) + '☆'.repeat(5-r.rating);
+          return `\n          <article class="review" data-idx="${idx}">\n            <div class="review-body">\n              <div class="review-stars">${stars}</div>\n              <p>${escapeHtml(r.text)}</p>\n            </div>\n            <footer>\n              <strong>${escapeHtml(r.name)}${loc}</strong>\n              <button class="delete-review" data-idx="${idx}" aria-label="Delete review by ${escapeHtml(r.name)}">Delete</button>\n            </footer>\n          </article>`;
+        }).join('\n');
+      }
+
+      function addReview(review){
+        const list = loadReviews();
+        list.unshift(review); // newest first
+        saveReviews(list);
+        renderReviews();
+      }
+
+      function clearReviews(){
+        localStorage.removeItem(STORAGE_KEY);
+        renderReviews();
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        renderReviews();
+
+        const form = document.getElementById('leave-review');
+        const msg = document.getElementById('review-msg');
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          const name = document.getElementById('reviewer-name').value.trim();
+          const location = document.getElementById('reviewer-location').value.trim();
+          const rating = parseInt(document.getElementById('review-rating').value,10) || 5;
+          const text = document.getElementById('review-text').value.trim();
+          if(!name || !text){
+            msg.textContent = 'Please provide your name and a short review.';
+            return;
+          }
+          addReview({ name, location, rating, text, created: Date.now() });
+          form.reset();
+          msg.textContent = 'Thanks — your review has been added.';
+          setTimeout(()=> msg.textContent = '', 3000);
+        });
+
+        document.getElementById('clear-reviews').addEventListener('click', function(){
+          if(confirm('Clear all reviews? This cannot be undone.')){
+            clearReviews();
+          }
+        });
+
+        // Delegate delete buttons
+        document.getElementById('reviews-list').addEventListener('click', function(e){
+          const btn = e.target.closest('.delete-review');
+          if(!btn) return;
+          const idx = Number(btn.getAttribute('data-idx'));
+          const list = loadReviews();
+          if(isNaN(idx) || idx < 0 || idx >= list.length) return;
+          if(!confirm('Delete this review?')) return;
+          list.splice(idx,1);
+          saveReviews(list);
+          renderReviews();
+        });
+      });
+    })();
+  </script>
   </main>
   <div id="site-footer"></div>
   <script src="script.js"></script>
