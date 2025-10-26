@@ -1,65 +1,105 @@
+/* Reset & Base */
 body {
-    padding: 0;
-    margin: 0;
-}
-.app {
-    padding: 0;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    overflow: hidden;
-    font-family: "Bree Serif", serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    user-select: none;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-.hidden {
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #34495e;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0.5em;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #1abc9c;
+  border-radius: 5px;
+}
+
+main {
+  padding: 2em;
+  max-width: 1000px;
+  margin: auto;
+  background-color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #2c3e50;
+  color: white;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Testimonials */
+.testimonial {
+  background-color: #ecf0f1;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-left: 5px solid #1abc9c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+}
+#menu-toggle {
+  display: none;
+  background: #1abc9c;
+  color: white;
+  font-size: 1.5em;
+  border: none;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+}
+
+@media (max-width: 600px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  nav ul {
     display: none;
-}
+    flex-direction: column;
+  }
 
-.menu {
+  nav ul.open {
     display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-.menu-section {
-    height: 100%;
-    transition: width 0.5s ease, background-position 0.5s ease;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.menu-section:not(.active) {
-    cursor: pointer;
-}
-
-.menu-section.active {
-    cursor: default;
-}
-
-.page {
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-}
-
-h1 {
-    margin: 0;
-}
-
-.text-row {
-    font-size: 3em;
-    display: flex;
-    align-items: flex-start;
-    padding-right: 4em;
-    text-align: end;
-}
-
-.sideways {
-    transform: rotate(-90deg) translateX(-120%);
-    white-space: nowrap;
-    transform-origin: top left;
+  }
 }
