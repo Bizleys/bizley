@@ -110,6 +110,7 @@ class App {
     const mattPage = new Page("Matt", "Matt", 480, document.getElementById("matt-page"), '.png');
     const abigailPage = new Page("Abigail", "Abigail", 360, document.getElementById("abigail-page"), '.png');
     const kyranPage = new Page("Kyran", "Kyran", 520, document.getElementById("kyran-page"), '.png');
+    const davidPage = new Page("David", "David", 440, document.getElementById("david-page"), '.png');
 
         const menu = new Menu(rootNode, [
             bizleysPage,
@@ -117,7 +118,8 @@ class App {
             clairePage,
             mattPage,
             abigailPage,
-            kyranPage
+            kyranPage,
+            davidPage
         ]);
 
         menu.arrange();

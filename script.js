@@ -26,7 +26,7 @@ function loadScript(url) {
 
 function initSiteBehavior() {
   const toggle = document.getElementById("menu-toggle");
-  const nav = document.querySelector("nav ul");
+  const nav = document.getElementById('main-nav') || document.querySelector("nav ul");
   let trap = null; // focus-trap instance if created
 
   // Start loading focus-trap in background. It's okay if it fails — we keep a fallback.
@@ -80,9 +80,17 @@ function initSiteBehavior() {
   }
 
   if (toggle && nav) {
+    // Ensure ARIA relationships
+    if (!toggle.getAttribute('aria-controls') && nav.id) {
+      toggle.setAttribute('aria-controls', nav.id);
+    }
+    // Hide nav from screen readers when closed
+    nav.setAttribute('aria-hidden', nav.classList.contains('open') ? 'false' : 'true');
+
     toggle.addEventListener("click", async () => {
       const isOpen = nav.classList.toggle("open");
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      nav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
 
       if (isOpen) {
         // Try to create a library trap if not already created and library loaded
@@ -116,6 +124,7 @@ function initSiteBehavior() {
         if (nav.classList.contains('open')) {
           nav.classList.remove('open');
           toggle.setAttribute('aria-expanded', 'false');
+          nav.setAttribute('aria-hidden', 'true');
           if (trap) try { trap.deactivate(); } catch (err) {}
           disableFallbackTrap(nav);
           toggle.focus();
@@ -132,14 +141,31 @@ function initSiteBehavior() {
     const name = href.split('/').pop();
     if (name === current || (current === '' && name === 'index.html')) {
       a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.removeAttribute('aria-current');
     }
   });
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (!href) return;
+      const target = document.querySelector(href);
+      if (!target) return;
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) target.scrollIntoView({ behavior: "smooth" });
+      target.scrollIntoView({ behavior: "smooth" });
+      // For skip links and in-page anchors, move focus to target for keyboard users
+      if (this.classList.contains('skip-link') || href === '#main-content' || target.tagName.toLowerCase() === 'main') {
+        // Ensure target can receive focus
+        const prevTabIndex = target.getAttribute('tabindex');
+        if (!prevTabIndex) target.setAttribute('tabindex', '-1');
+        setTimeout(() => {
+          try { target.focus({ preventScroll: true }); } catch (err) { target.focus(); }
+          // Clean up temporary tabindex if it wasn't present
+          if (!prevTabIndex) target.removeAttribute('tabindex');
+        }, 150);
+      }
     });
   });
 }

@@ -3,21 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery - Bizley</title>
+  <meta name="description" content="View our portfolio of completed home improvement projects including renovations, landscaping, carpentry, and outdoor living spaces." />
+  <title>Project Gallery | Bizley Home Improvements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://bizleyhomeimprovements.biz/gallery.html" />
+  <meta property="og:site_name" content="Bizley Home Improvements" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Project Gallery | Bizley Home Improvements" />
+  <meta property="og:description" content="View our portfolio of completed home improvement projects including renovations, landscaping, carpentry, and outdoor living spaces." />
+  <meta property="og:url" content="https://bizleyhomeimprovements.biz/gallery.html" />
+  <meta property="og:image" content="https://bizleyhomeimprovements.biz/images/Bizley.jpg" />
+  <meta property="og:image:alt" content="Gallery of Bizley Home Improvements projects" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Project Gallery | Bizley Home Improvements" />
+  <meta name="twitter:description" content="View our portfolio of completed home improvement projects including renovations, landscaping, carpentry, and outdoor living spaces." />
+  <meta name="twitter:image" content="https://bizleyhomeimprovements.biz/images/Bizley.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Bizley Home Improvements",
+    "url": "https://bizleyhomeimprovements.biz/",
+    "image": "https://bizleyhomeimprovements.biz/images/Bizley.jpg",
+    "description": "Expert renovations, landscaping, and bespoke home improvements across the UK since 2013.",
+    "areaServed": "GB",
+    "email": "bizleyservices25@gmail.com"
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
-  <main>
+  <main id="main-content">
     <h2>Our Work</h2>
-    <div class="gallery">
-      <img src="images/Pizza-oven.jpg" alt="Modern kitchen renovation">
-      <img src="images/Sam.jpg" alt="Luxury bathroom upgrade">
-      <img src="images/Bizley.jpg" alt="Landscaped garden">
-      <img src="images/Snake.jpg" alt="Painting and decroating">
-    </div>
+    
+    <section id="kitchen-bathroom">
+      <h3>Kitchen & Bathroom Renovations</h3>
+      <div class="gallery">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/Outbuilding 1-480.webp 480w, images/responsive/Outbuilding 1-679.webp 679w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/Outbuilding 1.jpg" alt="Modern kitchen renovation with custom cabinetry" width="600" height="400" loading="lazy" srcset="images/responsive/Outbuilding 1-480.jpg 480w, images/responsive/Outbuilding 1-679.jpg 679w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="images/responsive/Bizley-480.webp 480w, images/responsive/Bizley-768.webp 768w, images/responsive/Bizley-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/Bizley.jpg" alt="Luxury bathroom upgrade with contemporary fixtures" width="600" height="400" loading="lazy" srcset="images/responsive/Bizley-480.jpg 480w, images/responsive/Bizley-768.jpg 768w, images/responsive/Bizley-1200.jpg 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+      </div>
+    </section>
+
+    <section id="outdoor-living">
+      <h3>Outdoor Living</h3>
+      <div class="gallery">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/Pizza-oven-480.webp 480w, images/responsive/Pizza-oven-768.webp 768w, images/responsive/Pizza-oven-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/Pizza-oven.jpg" alt="Custom outdoor pizza oven installation" width="600" height="400" loading="lazy" srcset="images/responsive/Pizza-oven-480.jpg 480w, images/responsive/Pizza-oven-768.jpg 768w, images/responsive/Pizza-oven-1200.jpg 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="images/responsive/Sam-480.webp 480w, images/responsive/Sam-768.webp 768w, images/responsive/Sam-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/Sam.jpg" alt="Complete outdoor kitchen and dining area" width="600" height="400" loading="lazy" srcset="images/responsive/Sam-480.jpg 480w, images/responsive/Sam-768.jpg 768w, images/responsive/Sam-1200.jpg 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+      </div>
+    </section>
+
+    <section id="electrical-works">
+      <h3>Electrical Works</h3>
+      <div class="gallery">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/Snake-480.webp 480w, images/responsive/Snake-768.webp 768w, images/responsive/Snake-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/Snake.jpg" alt="Professional electrical installation and wiring" width="600" height="400" loading="lazy" srcset="images/responsive/Snake-480.jpg 480w, images/responsive/Snake-768.jpg 768w, images/responsive/Snake-1200.jpg 1200w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+      </div>
+    </section>
+
+    <section id="interior-finishing">
+      <h3>Interior Finishing</h3>
+      <div class="gallery">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/EDEN 3-440.webp 440w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/EDEN 3.png" alt="High-quality interior finishing and decoration" width="600" height="400" loading="lazy" srcset="images/responsive/EDEN 3-440.jpg 440w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+      </div>
+    </section>
+
+    <section id="custom-carpentry">
+      <h3>Custom Carpentry</h3>
+      <div class="gallery">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/Hazel Wicker fence-480.webp 480w, images/responsive/Hazel Wicker fence-768.webp 768w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/Hazel Wicker fence.jpg" alt="Custom hazel wicker fence construction" width="600" height="400" loading="lazy" srcset="images/responsive/Hazel Wicker fence-480.jpg 480w, images/responsive/Hazel Wicker fence-768.jpg 768w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+      </div>
+    </section>
+
+    <section id="landscaping">
+      <h3>Landscaping & Garden Design</h3>
+      <div class="gallery">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/my garden 1-264.webp 264w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/my garden 1.png" alt="Complete garden landscaping and design" width="600" height="400" loading="lazy" srcset="images/responsive/my garden 1-264.jpg 264w" sizes="(max-width: 800px) 100vw, 33vw">
+        </picture>
+      </div>
+    </section>
   </main>
   <div id="site-footer"></div>
-  <script src="script.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/anchors.js"></script>
 </body>
 </html>

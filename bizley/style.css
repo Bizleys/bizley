@@ -219,3 +219,26 @@ h1 {
     left: -1.25rem; /* nudge left so it peeks out when overlapped */
     z-index: 3; /* ensure heading sits above the overlay */
 }
+
+/* Mobile-friendly stacked layout for team page */
+@media (max-width: 700px) {
+    .app {
+        position: static;
+        top: 0;
+        min-height: auto;
+    }
+    .menu {
+        position: static;
+        flex-direction: column;
+    }
+    .menu-section {
+        position: relative !important;
+        width: 100% !important;
+        height: auto;
+        min-height: 60vh;
+    }
+    .menu-section.active { width: 100% !important; }
+    .text-row { font-size: 2rem; padding-right: 0; text-align: left; }
+    .sideways { transform: none; left: 0; }
+    .content { max-width: 100%; margin: 1rem; }
+}

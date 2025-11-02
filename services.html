@@ -3,65 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - Bizley</title>
+  <meta name="description" content="Professional home improvement services including kitchen & bathroom renovations, outdoor living spaces, electrical work, carpentry, and landscaping." />
+  <title>Our Services | Bizley Home Improvements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://bizleyhomeimprovements.biz/services.html" />
+  <meta property="og:site_name" content="Bizley Home Improvements" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Our Services | Bizley Home Improvements" />
+  <meta property="og:description" content="Professional home improvement services including kitchen & bathroom renovations, outdoor living spaces, electrical work, carpentry, and landscaping." />
+  <meta property="og:url" content="https://bizleyhomeimprovements.biz/services.html" />
+  <meta property="og:image" content="https://bizleyhomeimprovements.biz/images/Outbuilding%201.jpg" />
+  <meta property="og:image:alt" content="A selection of Bizley Home Improvements services" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Services | Bizley Home Improvements" />
+  <meta name="twitter:description" content="Professional home improvement services including kitchen & bathroom renovations, outdoor living spaces, electrical work, carpentry, and landscaping." />
+  <meta name="twitter:image" content="https://bizleyhomeimprovements.biz/images/Outbuilding%201.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Bizley Home Improvements",
+    "url": "https://bizleyhomeimprovements.biz/",
+    "image": "https://bizleyhomeimprovements.biz/images/Bizley.jpg",
+    "description": "Expert renovations, landscaping, and bespoke home improvements across the UK since 2013.",
+    "areaServed": "GB",
+    "email": "bizleyservices25@gmail.com"
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
-  <main>
+  <main id="main-content">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div class="service-item large">
-        <img src="images/Outbuilding 1.jpg" alt="Kitchen renovation" />
+      <a href="gallery.html#kitchen-bathroom" class="service-item large">
+        <picture>
+          <source type="image/webp" srcset="
+            images/responsive/Outbuilding 1-480.webp 480w,
+            images/responsive/Outbuilding 1-679.webp 679w" sizes="(max-width: 800px) 100vw, (max-width: 1200px) 50vw, 66vw">
+          <img src="images/Outbuilding 1.jpg" alt="Kitchen renovation" width="800" height="600" loading="eager"
+               srcset="images/responsive/Outbuilding 1-480.jpg 480w, images/responsive/Outbuilding 1-679.jpg 679w" sizes="(max-width: 800px) 100vw, (max-width: 1200px) 50vw, 66vw" />
+        </picture>
         <div class="service-overlay">
           <h3>Kitchen & Bathroom Renovations</h3>
           <p>Transform your living spaces with our expert renovation services. We create beautiful, functional kitchens and bathrooms tailored to your needs.</p>
         </div>
-      </div>
+      </a>
       
-      <div class="service-item medium">
-        <img src="images/Pizza-oven.jpg" alt="Outdoor kitchen" />
+      <a href="gallery.html#outdoor-living" class="service-item medium">
+        <picture>
+          <source type="image/webp" srcset="
+            images/responsive/Pizza-oven-480.webp 480w,
+            images/responsive/Pizza-oven-768.webp 768w,
+            images/responsive/Pizza-oven-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 50vw">
+          <img src="images/Pizza-oven.jpg" alt="Outdoor kitchen" width="600" height="600" loading="lazy"
+               srcset="
+                 images/responsive/Pizza-oven-480.jpg 480w,
+                 images/responsive/Pizza-oven-768.jpg 768w,
+                 images/responsive/Pizza-oven-1200.jpg 1200w" sizes="(max-width: 800px) 100vw, 50vw" />
+        </picture>
         <div class="service-overlay">
           <h3>Outdoor Living</h3>
           <p>Custom outdoor kitchens and living spaces that extend your home into nature.</p>
         </div>
-      </div>
+      </a>
 
-      <div class="service-item medium">
-        <img src="images/Snake.jpg" alt="Electrical work" />
+      <a href="gallery.html#electrical-works" class="service-item medium">
+        <picture>
+          <source type="image/webp" srcset="
+            images/responsive/Snake-480.webp 480w,
+            images/responsive/Snake-768.webp 768w,
+            images/responsive/Snake-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 50vw">
+          <img src="images/Snake.jpg" alt="Electrical work" width="600" height="600" loading="lazy"
+               srcset="
+                 images/responsive/Snake-480.jpg 480w,
+                 images/responsive/Snake-768.jpg 768w,
+                 images/responsive/Snake-1200.jpg 1200w" sizes="(max-width: 800px) 100vw, 50vw" />
+        </picture>
         <div class="service-overlay">
           <h3>Electrical works</h3>
           <p>Provide your home with the power supply to meet any needs.</p>
         </div>
-      </div>
+      </a>
 
       <!-- Moved: Interior Finishing placed in the middle -->
-      <div class="service-item small">
-        <img src="images/EDEN 3.png" alt="Interior finishing" />
+      <a href="gallery.html#interior-finishing" class="service-item small">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/EDEN 3-440.webp 440w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/EDEN 3.png" alt="Interior finishing" width="600" height="400" loading="lazy"
+               srcset="images/responsive/EDEN 3-440.jpg 440w" sizes="(max-width: 800px) 100vw, 33vw" />
+        </picture>
         <div class="service-overlay">
           <h3>Interior Finishing</h3>
           <p>Expert painting, tiling, and flooring installation for the perfect finish.</p>
         </div>
-      </div>
+      </a>
 
-      <div class="service-item small">
-        <img src="images/Hazel Wicker fence.jpg" alt="Custom carpentry" />
+      <a href="gallery.html#custom-carpentry" class="service-item small">
+        <picture>
+          <source type="image/webp" srcset="
+            images/responsive/Hazel Wicker fence-480.webp 480w,
+            images/responsive/Hazel Wicker fence-768.webp 768w" sizes="(max-width: 800px) 100vw, 33vw">
+          <img src="images/Hazel Wicker fence.jpg" alt="Custom carpentry" width="600" height="400" loading="lazy"
+               srcset="images/responsive/Hazel Wicker fence-480.jpg 480w, images/responsive/Hazel Wicker fence-768.jpg 768w" sizes="(max-width: 800px) 100vw, 33vw" />
+        </picture>
         <div class="service-overlay">
           <h3>Custom Carpentry</h3>
           <p>Bespoke woodwork and joinery solutions for every corner of your home.</p>
         </div>
-      </div>
+      </a>
 
-      <div class="service-item wide">
-        <img src="images/my garden 1.png" alt="Landscaping" />
+      <a href="gallery.html#landscaping" class="service-item wide">
+        <picture>
+          <source type="image/webp" srcset="images/responsive/my garden 1-264.webp 264w" sizes="(max-width: 800px) 100vw, 66vw">
+          <img src="images/my garden 1.png" alt="Landscaping" width="1200" height="400" loading="lazy"
+               srcset="images/responsive/my garden 1-264.jpg 264w" sizes="(max-width: 800px) 100vw, 66vw" />
+        </picture>
         <div class="service-overlay">
           <h3>Landscaping & Garden Design</h3>
           <p>Create your perfect outdoor sanctuary with our comprehensive landscaping services.</p>
         </div>
-      </div>
+      </a>
     </div>
   </main>
   <div id="site-footer"></div>
-  <script src="script.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/anchors.js"></script>
 </body>
 </html>

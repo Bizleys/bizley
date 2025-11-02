@@ -3,38 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us</title>
+  <meta name="description" content="Get in touch with Bizley Home Improvements for your next renovation, landscaping, or home improvement project." />
+  <title>Contact Us | Bizley Home Improvements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://bizleyhomeimprovements.biz/contact.html" />
+  <meta property="og:site_name" content="Bizley Home Improvements" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact Us | Bizley Home Improvements" />
+  <meta property="og:description" content="Get in touch with Bizley Home Improvements for your next renovation, landscaping, or home improvement project." />
+  <meta property="og:url" content="https://bizleyhomeimprovements.biz/contact.html" />
+  <meta property="og:image" content="https://bizleyhomeimprovements.biz/images/Bizley.jpg" />
+  <meta property="og:image:alt" content="Contact Bizley Home Improvements" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Us | Bizley Home Improvements" />
+  <meta name="twitter:description" content="Get in touch with Bizley Home Improvements for your next renovation, landscaping, or home improvement project." />
+  <meta name="twitter:image" content="https://bizleyhomeimprovements.biz/images/Bizley.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Bizley Home Improvements",
+    "url": "https://bizleyhomeimprovements.biz/",
+    "image": "https://bizleyhomeimprovements.biz/images/Bizley.jpg",
+    "description": "Expert renovations, landscaping, and bespoke home improvements across the UK since 2013.",
+    "areaServed": "GB",
+    "email": "bizleyservices25@gmail.com"
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Contact Bizley Home Improvements</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about-team.html">The Team</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section>
-      <h2>Get in Touch</h2>
-      <form>
-        <label for="name">Name:</label><br />
-        <input type="text" id="name" name="name" /><br />
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main-content">
+    <section class="contact-section">
+      <div class="contact-image">
+        <picture>
+          <source type="image/webp" srcset="
+            images/responsive/Bizley-480.webp 480w,
+            images/responsive/Bizley-768.webp 768w,
+            images/responsive/Bizley-1200.webp 1200w" sizes="(max-width: 800px) 100vw, 50vw">
+          <img src="images/Bizley.jpg" alt="Bizley team" width="600" height="800" loading="eager"
+               srcset="images/responsive/Bizley-480.jpg 480w, images/responsive/Bizley-768.jpg 768w, images/responsive/Bizley-1200.jpg 1200w" sizes="(max-width: 800px) 100vw, 50vw" />
+        </picture>
+      </div>
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form action="https://formspree.io/f/movpyydg" method="POST">
+          <label for="name">Name:</label><br />
+          <input type="text" id="name" name="name" required /><br />
 
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" /><br />
+          <label for="email">Email:</label><br />
+          <input type="email" id="email" name="email" required /><br />
 
-        <label for="message">Message:</label><br />
-        <textarea id="message" name="message"></textarea><br />
+          <label for="message">Message:</label><br />
+          <textarea id="message" name="message" rows="8" required></textarea><br />
 
-        <button type="submit">Send</button>
-      </form>
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2025 Bizley Home Improvements</p>
-  </footer>
+  <div id="site-footer"></div>
+  <script src="js/header.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/anchors.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>

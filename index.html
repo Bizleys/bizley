@@ -3,19 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bizley Home Improvements</title>
+  <meta name="description" content="Bizley Home Improvements - Expert renovations, landscaping, and bespoke home improvements across the UK since 2013." />
+  <title>Bizley Home Improvements | Expert Renovations & Landscaping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://bizleyhomeimprovements.biz/" />
+  <meta property="og:site_name" content="Bizley Home Improvements" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bizley Home Improvements | Expert Renovations & Landscaping" />
+  <meta property="og:description" content="Bizley Home Improvements - Expert renovations, landscaping, and bespoke home improvements across the UK since 2013." />
+  <meta property="og:url" content="https://bizleyhomeimprovements.biz/" />
+  <meta property="og:image" content="https://bizleyhomeimprovements.biz/images/Bizley.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:image:alt" content="Bizley Home Improvements project showcase" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bizley Home Improvements | Expert Renovations & Landscaping" />
+  <meta name="twitter:description" content="Bizley Home Improvements - Expert renovations, landscaping, and bespoke home improvements across the UK since 2013." />
+  <meta name="twitter:image" content="https://bizleyhomeimprovements.biz/images/Bizley.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Bizley Home Improvements",
+    "url": "https://bizleyhomeimprovements.biz/",
+    "image": "https://bizleyhomeimprovements.biz/images/Bizley.jpg",
+    "description": "Expert renovations, landscaping, and bespoke home improvements across the UK since 2013.",
+    "areaServed": "GB",
+    "email": "bizleyservices25@gmail.com"
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div id="site-header"></div>
-  <main>
+  <main id="main-content">
     <section>
       <h2>Your Dream Home Starts Here</h2>
       <p>We specialize in renovations, landscaping, and bespoke improvements that elevate your space.</p>
     </section>
     <!-- Feature sections: image + text side-by-side -->
     <section class="feature large-image">
-      <img src="images/Bizley.jpg" alt="Finished renovation" />
+      <picture>
+        <source type="image/webp" srcset="
+          images/responsive/Bizley-480.webp 480w,
+          images/responsive/Bizley-768.webp 768w,
+          images/responsive/Bizley-1200.webp 1200w,
+          images/responsive/Bizley-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 70vw">
+        <img src="images/Bizley.jpg" alt="Finished renovation" width="1200" height="800" loading="eager"
+             srcset="
+               images/responsive/Bizley-480.jpg 480w,
+               images/responsive/Bizley-768.jpg 768w,
+               images/responsive/Bizley-1200.jpg 1200w,
+               images/responsive/Bizley-1600.jpg 1600w" sizes="(max-width: 800px) 100vw, 70vw" />
+      </picture>
       <div class="feature-text">
         <h3>Renovations that last</h3>
         <p>From planning to finish, our team works with you to deliver durable, beautiful renovations tailored to your lifestyle.</p>
@@ -23,7 +65,19 @@
     </section>
 
     <section class="feature reverse">
-      <img src="images/Pizza-oven.jpg" alt="Outdoor kitchen" />
+      <picture>
+        <source type="image/webp" srcset="
+          images/responsive/Pizza-oven-480.webp 480w,
+          images/responsive/Pizza-oven-768.webp 768w,
+          images/responsive/Pizza-oven-1200.webp 1200w,
+          images/responsive/Pizza-oven-1600.webp 1600w" sizes="(max-width: 800px) 100vw, 55vw">
+        <img src="images/Pizza-oven.jpg" alt="Outdoor kitchen" width="800" height="600" loading="lazy"
+             srcset="
+               images/responsive/Pizza-oven-480.jpg 480w,
+               images/responsive/Pizza-oven-768.jpg 768w,
+               images/responsive/Pizza-oven-1200.jpg 1200w,
+               images/responsive/Pizza-oven-1600.jpg 1600w" sizes="(max-width: 800px) 100vw, 55vw" />
+      </picture>
       <div class="feature-text">
         <h3>Outdoor living & kitchens</h3>
         <p>We design and build outdoor spaces that expand your home — bespoke kitchens, patios and integrated features for year-round use.</p>
@@ -31,6 +85,8 @@
     </section>
   </main>
   <div id="site-footer"></div>
-  <script src="script.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/anchors.js"></script>
 </body>
 </html>
