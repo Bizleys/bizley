@@ -37,12 +37,18 @@ class MenuSection {
         // Preload image with robust case/format fallbacks and set background once loaded
         const img = new Image();
         const base = "bizley/assets/images/" + page.backgroundImage;
+        const baseLower = "bizley/assets/images/" + page.backgroundImage.toLowerCase();
         const candidates = [
-            base + page.imageExt,       // preferred explicit ext
+            base + page.imageExt,       // preferred explicit ext (e.g., Matt.png)
+            baseLower + page.imageExt.toLowerCase(),  // lowercase variant (e.g., matt.png)
             base + '.png', base + '.PNG',
+            baseLower + '.png',
             base + '.jpg', base + '.JPG',
+            baseLower + '.jpg',
             base + '.jpeg', base + '.JPEG',
-            base + '.webp', base + '.WEBP'
+            baseLower + '.jpeg',
+            base + '.webp', base + '.WEBP',
+            baseLower + '.webp'
         ];
 
         let chosen = null;
