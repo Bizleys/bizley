@@ -235,10 +235,22 @@ h1 {
         position: relative !important;
         width: 100% !important;
         height: auto;
-        min-height: 60vh;
+        min-height: 65vh;
     }
     .menu-section.active { width: 100% !important; }
     .text-row { font-size: 2rem; padding-right: 0; text-align: left; }
     .sideways { transform: none; left: 0; }
-    .content { max-width: 100%; margin: 1rem; }
+    /* Reserve space for the bottom content overlay */
+    .menu-section .page { position: relative; height: 100%; padding-bottom: 7rem; }
+    /* Pin content box to the bottom, full-width, with a soft gradient */
+    .menu-section .content {
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 1rem 1.25rem;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.75) 100%);
+        box-shadow: none;
+    }
 }
