@@ -64,7 +64,11 @@
   function initNav() {
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav') || document.querySelector('nav ul');
-    if (!nav || !toggle) return;
+    if (!nav || !toggle) return false;
+
+    // Prevent double-initialization
+    if (toggle.__navInitialized) return true;
+    toggle.__navInitialized = true;
 
     // Start loading focus-trap in background
     loadScript('https://unpkg.com/focus-trap@6/dist/focus-trap.umd.js').catch(() => {
@@ -128,7 +132,29 @@
         a.removeAttribute('aria-current');
       }
     });
+
+    return true;
   }
 
-  document.addEventListener('DOMContentLoaded', initNav);
+  function bootstrapNav() {
+    if (initNav()) return; // initialized successfully
+
+    // If header include hasn't loaded yet, observe #site-header for changes
+    const container = document.getElementById('site-header');
+    if (!container || typeof MutationObserver === 'undefined') {
+      // Fallback: try a few times after DOMContentLoaded
+      let attempts = 0;
+      const iv = setInterval(() => {
+        attempts++;
+        if (initNav() || attempts > 10) clearInterval(iv);
+      }, 200);
+      return;
+    }
+    const mo = new MutationObserver(() => {
+      if (initNav()) mo.disconnect();
+    });
+    mo.observe(container, { childList: true, subtree: true });
+  }
+
+  document.addEventListener('DOMContentLoaded', bootstrapNav);
 })();
