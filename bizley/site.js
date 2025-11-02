@@ -93,6 +93,8 @@ class MenuSection {
         parentNode.appendChild(this.element);
         this.element.style.width = Design.menuBarWidthEm + "em";
         this.element.onclick = (event) => {
+                // On mobile, sections are stacked - don't toggle
+                if (window.innerWidth <= 700) return;
             Design.activeMenuSectionIndex = index;
             menu.arrange();
         }
@@ -113,6 +115,17 @@ class Menu {
 
     arrange() {
         const totalWidth = window.innerWidth;
+        
+        // On mobile (< 700px), let CSS handle the layout - don't manipulate inline styles
+        if (totalWidth <= 700) {
+            this.menuSections.forEach(section => {
+                section.element.style.right = '';
+                section.element.style.width = '';
+            });
+            return;
+        }
+        
+        // Desktop layout
         const activeWidth = totalWidth * 0.7; // 70% of screen
         const inactiveWidth = Design.menuBarWidthEm + "em"; // Fixed width for inactive
         let currentRight = 0;
