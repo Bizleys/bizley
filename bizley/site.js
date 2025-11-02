@@ -34,26 +34,43 @@ class MenuSection {
         this.index = index;
         this.element = Artist.createElement("menu-section");
         
-        // Preload image and set background once loaded
+        // Preload image with robust case/format fallbacks and set background once loaded
         const img = new Image();
-        // Use correct path relative to about-team.html
-        const imagePath = "bizley/assets/images/" + page.backgroundImage + page.imageExt;
-        
-        img.onload = () => {
-            console.log("Image loaded successfully:", imagePath);
-            this.element.style.backgroundImage = `url('${imagePath}')`;
-            this.element.style.opacity = "1";
+        const base = "bizley/assets/images/" + page.backgroundImage;
+        const candidates = [
+            base + page.imageExt,       // preferred explicit ext
+            base + '.png', base + '.PNG',
+            base + '.jpg', base + '.JPG',
+            base + '.jpeg', base + '.JPEG',
+            base + '.webp', base + '.WEBP'
+        ];
+
+        let chosen = null;
+        const tryLoad = (i) => {
+            if (i >= candidates.length) {
+                console.error("All image candidates failed for", base);
+                this.element.style.backgroundColor = "rgba(0,0,0,0.7)";
+                this.element.style.opacity = "1"; // show overlay even if image fails
+                return;
+            }
+            const path = candidates[i];
+            img.onload = () => {
+                chosen = path;
+                try { console.log("Image loaded successfully:", path); } catch {}
+                this.element.style.backgroundImage = `url('${path}')`;
+                this.element.style.opacity = "1";
+            };
+            img.onerror = () => {
+                try { console.warn("Failed to load, trying next:", path); } catch {}
+                tryLoad(i + 1);
+            };
+            img.src = path;
         };
-        
-        img.onerror = (e) => {
-            console.error("Image failed to load:", imagePath, e);
-            this.element.style.backgroundColor = "rgba(0,0,0,0.7)";
-        };
-        
-        // Set initial state
+
+        // Set initial state and kick off loading
         this.element.style.opacity = "0";
         this.element.style.backgroundColor = "rgba(0,0,0,0.5)";
-        img.src = imagePath;
+        tryLoad(0);
         
         // append the page content inside the section
         this.element.appendChild(page.element);
