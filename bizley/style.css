@@ -23,7 +23,7 @@ body {
 /* Header and navigation styling is inherited from the global site stylesheet (style.css) */
 
 /* Keep correct offset for fixed app container below the global header */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .app { --header-height: 88px; top: var(--header-height); }
 }
 
