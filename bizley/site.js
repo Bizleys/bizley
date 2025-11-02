@@ -38,17 +38,27 @@ class MenuSection {
         const img = new Image();
         const base = "bizley/assets/images/" + page.backgroundImage;
         const baseLower = "bizley/assets/images/" + page.backgroundImage.toLowerCase();
+        
+        // Build comprehensive list of case and extension variants
         const candidates = [
-            base + page.imageExt,       // preferred explicit ext (e.g., Matt.png)
-            baseLower + page.imageExt.toLowerCase(),  // lowercase variant (e.g., matt.png)
-            base + '.png', base + '.PNG',
+            base + page.imageExt,       // e.g., Matt.png
+            baseLower + page.imageExt.toLowerCase(),  // e.g., matt.png
+            base + '.png',
             baseLower + '.png',
-            base + '.jpg', base + '.JPG',
+            base + '.PNG',
+            baseLower + '.PNG',
+            base + '.jpg',
             baseLower + '.jpg',
-            base + '.jpeg', base + '.JPEG',
+            base + '.JPG',
+            baseLower + '.JPG',
+            base + '.jpeg',
             baseLower + '.jpeg',
-            base + '.webp', base + '.WEBP',
-            baseLower + '.webp'
+            base + '.JPEG',
+            baseLower + '.JPEG',
+            base + '.webp',
+            baseLower + '.webp',
+            base + '.WEBP',
+            baseLower + '.WEBP'
         ];
 
         let chosen = null;
@@ -62,12 +72,12 @@ class MenuSection {
             const path = candidates[i];
             img.onload = () => {
                 chosen = path;
-                try { console.log("Image loaded successfully:", path); } catch {}
+                console.log("✓ Image loaded successfully:", path);
                 this.element.style.backgroundImage = `url('${path}')`;
                 this.element.style.opacity = "1";
             };
             img.onerror = () => {
-                try { console.warn("Failed to load, trying next:", path); } catch {}
+                console.log(`✗ Failed [${i+1}/${candidates.length}]:`, path);
                 tryLoad(i + 1);
             };
             img.src = path;
