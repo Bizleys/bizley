@@ -20,96 +20,11 @@ body {
     align-items: stretch;
 }
 
-/* Header / navigation (warm theme) */
-#site-header > header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    background: linear-gradient(90deg, #FFD89B 0%, #FF7E5F 100%); /* warm gradient */
-    color: #3b2f2f;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    z-index: 1000;
-}
+/* Header and navigation styling is inherited from the global site stylesheet (style.css) */
 
-#site-header > header h1 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #3b2f2f;
-}
-
-#site-header > header nav {
-    flex: 1 1 auto;
-}
-
-#site-header > header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-    /* center the nav and nudge slightly to the right so it's just off-centre */
-    justify-content: center;
-    align-items: center;
-    margin-left: 4.5rem; /* tweak this to move nav further right/left */
-}
-
-#site-header > header nav a {
-    color: #3b2f2f;
-    text-decoration: none;
-    padding: 0.4rem 0.6rem;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.12);
-}
-
-/* Remove/hide the white-looking default button in the left corner while keeping the icon accessible.
-   On smaller screens a visible toggle might be needed; if so, we can show a styled toggle later. */
-#site-header > header nav #menu-toggle {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    color: inherit;
-    font-size: 1.25rem;
-    padding: 0.25rem 0.5rem;
-    margin: 0;
-    cursor: pointer;
-    /* visually reduce space taken by the button */
-}
-
-/* If you want the toggle completely removed, uncomment the following rule:
-#site-header > header nav #menu-toggle { display: none; }
-*/
-
-#site-header > header nav a:hover {
-    background: rgba(255,255,255,0.22);
-}
-
+/* Keep correct offset for fixed app container below the global header */
 @media (max-width: 600px) {
     .app { --header-height: 88px; top: var(--header-height); }
-    #site-header > header { height: var(--header-height); }
-    #site-header > header nav ul { gap: 0.5rem; }
-
-    /* Mobile override: remove the left nudge and align nav to the right for small screens */
-    #site-header > header nav ul {
-        margin-left: 0; /* reset the desktop nudge */
-        justify-content: flex-end; /* keep the nav accessible on the right */
-    }
-
-    /* Make the menu-toggle visible and touch-friendly on mobile */
-    #site-header > header nav #menu-toggle {
-        display: inline-block;
-        background: rgba(255,255,255,0.12);
-        border-radius: 6px;
-        padding: 0.4rem 0.6rem;
-        font-size: 1.1rem;
-        color: #3b2f2f;
-    }
 }
 
 .hidden {
