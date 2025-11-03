@@ -143,8 +143,16 @@ footer {
   margin-bottom: 2rem;
 }
 
+.gallery picture {
+  display: block;
+  height: 100%;
+}
+
 .gallery img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   border-radius: 8px;
 }
 
@@ -315,14 +323,15 @@ main section h3 {
   width: 55%;
   height: 70vh;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: contain;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 /* First feature with larger image */
 .feature.large-image img {
   width: 70%;
-  height: 85vh;
+  height: auto;
+  max-height: 85vh;
 }
 
 .feature.large-image .feature-text {
@@ -349,6 +358,16 @@ main section h3 {
 /* Reverse layout for alternating section (image on right) */
 .feature.reverse {
   flex-direction: row-reverse;
+}
+
+.feature.reverse img {
+  width: 80%;
+  height: auto;
+  max-height: 120vh;
+}
+
+.feature.reverse .feature-text {
+  width: 35%;
 }
 
 /* Responsive: stack vertically on narrow screens */
