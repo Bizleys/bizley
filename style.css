@@ -535,7 +535,7 @@ main section h3 {
   .feature.reverse .feature-text {
     position: relative;
     width: 100% !important;
-    height: 80vh;
+    height: 40vh;
     padding: 2rem 1.5rem;
     background: var(--surface);
     color: var(--text);
