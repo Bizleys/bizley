@@ -155,8 +155,9 @@ class Menu {
 class App {
     constructor(rootNode) {
     const bizleysPage = new Page("The Bizleys", "bizleys", 420, document.getElementById("bizleys-page"), '.png');
-    const samPage = new Page("Sam", "sam", 600, document.getElementById("sam-page"), '.png');
-    const clairePage = new Page("Claire", "Claire", 500, document.getElementById("claire-page"), '.png');
+    // use the new JPEG portrait for Sam (Samuel) rather than the old PNG
+    const samPage = new Page("Sam", "Samuel", 600, document.getElementById("sam-page"), '.jpeg');
+    const clairePage = new Page("Claire", "Claire", 500, document.getElementById("claire-page"), '.jpeg');
     const mattPage = new Page("Matt", "Matt", 480, document.getElementById("matt-page"), '.png');
     const abigailPage = new Page("Abigail", "Abigail", 360, document.getElementById("abigail-page"), '.png');
     const kyranPage = new Page("Kyran", "Kyran", 520, document.getElementById("kyran-page"), '.png');
