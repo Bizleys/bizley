@@ -120,6 +120,7 @@
     form.addEventListener('submit', function(e){
       e.preventDefault();
       if (!validate()) { msg.textContent = 'Please fix the errors above.'; return; }
+
       const review = {
         name: nameInput.value.trim(),
         location: locInput.value.trim(),
@@ -127,7 +128,23 @@
         text: textInput.value.trim(),
         created: Date.now()
       };
+
+      // retain existing local-storage review functionality
       addReview(review);
+
+      // also send the review data to Formspree (same endpoint as contact)
+      try {
+        const formData = new FormData();
+        formData.append('name', review.name);
+        let messageBody = `Rating: ${review.rating}/5`;
+        if (review.location) messageBody += `\nLocation: ${review.location}`;
+        messageBody += `\n\n${review.text}`;
+        formData.append('message', messageBody);
+        fetch(form.action, { method: 'POST', body: formData });
+      } catch (err) {
+        console.error('Failed to post review to Formspree', err);
+      }
+
       form.reset();
       msg.textContent = 'Thanks — your review has been added.';
       setTimeout(()=> msg.textContent = '', 3000);
