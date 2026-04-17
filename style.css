@@ -462,8 +462,8 @@ main section h3 {
 
 /* Contact page layout */
 .contact-section { display: flex; gap: 2rem; align-items: flex-start; }
-.contact-image { flex: 1; }
-.contact-image img { width: 100%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.contact-image { flex: 1; max-width: 480px; align-self: center; }
+.contact-image img { width: 100%; max-width: 100%; height: auto; object-fit: contain; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 .contact-form { flex: 1; }
 .contact-form form { display: flex; flex-direction: column; }
 .contact-form label { margin-top: 0.5rem; font-weight: 600; }

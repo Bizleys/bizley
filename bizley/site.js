@@ -36,35 +36,41 @@ class MenuSection {
         
         // Preload image with robust case/format fallbacks and set background once loaded
         const img = new Image();
-        const base = "bizley/assets/images/" + page.backgroundImage;
-        const baseLower = "bizley/assets/images/" + page.backgroundImage.toLowerCase();
-        
-        // Build comprehensive list of case and extension variants
-        const candidates = [
-            base + page.imageExt,       // e.g., Matt.png
-            baseLower + page.imageExt.toLowerCase(),  // e.g., matt.png
-            base + '.png',
-            baseLower + '.png',
-            base + '.PNG',
-            baseLower + '.PNG',
-            base + '.jpg',
-            baseLower + '.jpg',
-            base + '.JPG',
-            baseLower + '.JPG',
-            base + '.jpeg',
-            baseLower + '.jpeg',
-            base + '.JPEG',
-            baseLower + '.JPEG',
-            base + '.webp',
-            baseLower + '.webp',
-            base + '.WEBP',
-            baseLower + '.WEBP'
+        const bases = [
+            "bizley/assets/images/" + page.backgroundImage,
+            "images/" + page.backgroundImage
         ];
+        
+        // Build comprehensive list of case and extension variants across asset locations
+        const candidates = [];
+        bases.forEach((base) => {
+            const baseLower = base.toLowerCase();
+            candidates.push(
+                base + page.imageExt,
+                baseLower + page.imageExt.toLowerCase(),
+                base + '.png',
+                baseLower + '.png',
+                base + '.PNG',
+                baseLower + '.PNG',
+                base + '.jpg',
+                baseLower + '.jpg',
+                base + '.JPG',
+                baseLower + '.JPG',
+                base + '.jpeg',
+                baseLower + '.jpeg',
+                base + '.JPEG',
+                baseLower + '.JPEG',
+                base + '.webp',
+                baseLower + '.webp',
+                base + '.WEBP',
+                baseLower + '.WEBP'
+            );
+        });
 
         let chosen = null;
         const tryLoad = (i) => {
             if (i >= candidates.length) {
-                console.error("All image candidates failed for", base);
+                console.error("All image candidates failed for", page.backgroundImage);
                 this.element.style.backgroundColor = "rgba(0,0,0,0.7)";
                 this.element.style.opacity = "1"; // show overlay even if image fails
                 return;
@@ -154,12 +160,12 @@ class Menu {
 
 class App {
     constructor(rootNode) {
-    const bizleysPage = new Page("The Bizleys", "bizleys", 420, document.getElementById("bizleys-page"), '.png');
+    const bizleysPage = new Page("The Bizleys", "Bizley", 420, document.getElementById("bizleys-page"), '.jpg');
     // use the new JPEG portrait for Sam (Samuel) rather than the old PNG
     const samPage = new Page("Sam", "Samuel", 600, document.getElementById("sam-page"), '.jpeg');
     const clairePage = new Page("Claire", "Claire", 500, document.getElementById("claire-page"), '.jpeg');
     const mattPage = new Page("Matt", "Matt", 480, document.getElementById("matt-page"), '.png');
-    const abigailPage = new Page("Abigail", "Abigail", 360, document.getElementById("abigail-page"), '.png');
+    const abigailPage = new Page("Abigail", "Abigail", 360, document.getElementById("abigail-page"), '.jpeg');
     const kyranPage = new Page("Kyran", "Kyran", 520, document.getElementById("kyran-page"), '.png');
     const davidPage = new Page("David", "David", 440, document.getElementById("david-page"), '.jpg');
 
