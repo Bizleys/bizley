@@ -7,6 +7,16 @@
 (function(){
   const STORAGE_KEY = 'bizleyReviews_v1';
 
+  const DEFAULT_REVIEWS = [
+    {
+      name: 'Desiree',
+      location: 'Barroway Drove',
+      rating: 5,
+      text: 'Sam has created a beautiful "patio".for my ponies....it is stunning. A yard on hard core and sand, with a French drain around. The patio is made with recycled council and domestic slabs.\nHe is so on point with time, finishing the job with detail and skill...I cannot recommend him more highly. Thank you Sam!! Amazing 🤩',
+      date: '03:36 PM - 23 May 2026'
+    }
+  ];
+
   function escapeHtml(s){
     return String(s)
       .replace(/&/g, '&amp;')
@@ -32,7 +42,8 @@
 
   function renderReviews(){
     const container = document.getElementById('reviews-list');
-    const reviews = loadReviews();
+    const stored = loadReviews();
+    const reviews = [...DEFAULT_REVIEWS, ...stored];
     if(!container) return;
     if(reviews.length === 0){
       container.innerHTML = '<p class="muted">No reviews yet — be the first to leave one.</p>';
@@ -41,6 +52,8 @@
     container.innerHTML = reviews.map((r, idx) => {
       const loc = r.location ? (' — ' + escapeHtml(r.location)) : '';
       const stars = '★'.repeat(r.rating) + '☆'.repeat(5-r.rating);
+      const dateText = r.date ? escapeHtml(r.date) : (r.created ? escapeHtml(new Date(r.created).toLocaleString('en-GB', { hour: '2-digit', minute: '2-digit', day: '2-digit', month: 'short', year: 'numeric' })) : '');
+      const isStored = idx >= DEFAULT_REVIEWS.length;
       return `
       <article class="review" role="listitem" data-idx="${idx}">
         <div class="review-body">
@@ -48,8 +61,11 @@
           <p>${escapeHtml(r.text)}</p>
         </div>
         <footer>
-          <strong>${escapeHtml(r.name)}${loc}</strong>
-          <button class="delete-review" data-idx="${idx}" aria-label="Delete review by ${escapeHtml(r.name)}">Delete</button>
+          <div>
+            <strong>${escapeHtml(r.name)}${loc}</strong>
+            ${dateText ? `<small class="review-meta">${dateText}</small>` : ''}
+          </div>
+          ${isStored ? `<button class="delete-review" data-idx="${idx}" aria-label="Delete review by ${escapeHtml(r.name)}">Delete</button>` : ''}
         </footer>
       </article>`;
     }).join('\n');
@@ -159,9 +175,10 @@
       if(!btn) return;
       const idx = Number(btn.getAttribute('data-idx'));
       const list = loadReviews();
-      if(isNaN(idx) || idx < 0 || idx >= list.length) return;
+      const storedIndex = idx - DEFAULT_REVIEWS.length;
+      if(isNaN(idx) || storedIndex < 0 || storedIndex >= list.length) return;
       if(!confirm('Delete this review?')) return;
-      list.splice(idx,1);
+      list.splice(storedIndex,1);
       saveReviews(list);
       renderReviews();
     });
