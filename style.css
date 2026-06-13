@@ -138,9 +138,13 @@ footer {
 /* Gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1em;
   margin-bottom: 2rem;
+}
+
+.gallery[hidden] {
+  display: none;
 }
 
 .gallery picture {
@@ -150,21 +154,129 @@ footer {
 
 .gallery img {
   width: 100%;
-  height: 100%;
+  height: 180px;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
 }
 
-main section {
-  scroll-margin-top: 100px;
-}
-
 main section h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
+}
+
+.section-toggle {
+  appearance: none;
+  border: 1px solid rgba(193, 151, 112, 0.55);
+  background: #fff8f4;
+  color: inherit;
+  font: inherit;
   font-family: 'Bree Serif', Georgia, serif;
   color: var(--accent);
+  cursor: pointer;
+  padding: 0.9rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 0;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffaf7 0%, #fff4eb 100%);
+  box-shadow: 0 10px 26px rgba(59, 47, 47, 0.1);
+}
+
+.section-toggle__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  flex: none;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 4px 12px rgba(59, 47, 47, 0.18);
+  order: 2;
+}
+
+.section-toggle__text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-width: 0;
+  order: 1;
+}
+
+.section-toggle__label {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.section-toggle__state {
+  flex: none;
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #3b2f2f;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+}
+
+section.is-open .section-toggle {
+  background: linear-gradient(180deg, #fff5ea 0%, #ffeedd 100%);
+}
+
+@media (max-width: 700px) {
+  .section-toggle__thumb {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.section-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.section-panel {
+  margin-top: 0.9rem;
+}
+
+.section-description__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #3b2f2f;
+}
+
+.section-description {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border: 1px solid rgba(59, 47, 47, 0.25);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font: inherit;
+  background: #fffdfb;
+  color: #3b2f2f;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.section-description:focus {
+  outline: 3px solid rgba(193, 151, 112, 0.45);
+  border-color: var(--accent);
+}
+
+main section {
+  scroll-margin-top: 100px;
 }
 
 /* Reviews */
