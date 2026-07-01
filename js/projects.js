@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alt: 'Alfresco cooking area',
     },
     'electrical-works': {
-      src: 'images/Full%20Landscaping%20Project/722285674_983400127865369_2809518213223084500_n.jpg',
+      src: 'images/Full%20Landscaping%20project/722285674_983400127865369_2809518213223084500_n.jpg',
       alt: 'Coastal Garden Renovation',
     },
   };
