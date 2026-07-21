@@ -14,6 +14,13 @@
       rating: 5,
       text: 'Sam has created a beautiful "patio".for my ponies....it is stunning. A yard on hard core and sand, with a French drain around. The patio is made with recycled council and domestic slabs.\nHe is so on point with time, finishing the job with detail and skill...I cannot recommend him more highly. Thank you Sam!! Amazing 🤩',
       date: '03:36 PM - 23 May 2026'
+    },
+    {
+      name: 'David Sturgess',
+      location: 'Welney',
+      rating: 5,
+      text: 'Sam and Matt have worked on our project, converting the former primary school in Welney to our home and a Christian retreat centre. Using their broad skill sets, they have made significant contributions to our project.\nTheir work for us has involved complex landscaping, including helping with the design, major groundworks, brickwork, paving, steps and building both brick and timber raised beds.\n\nMatt constructed a cut pitched roof, tiled and flashed it for our new garden room. This included the installation of a large roof lantern and the onsite construction and fitting of a bespoke hardwood window. Sam laid our patio and pathways. He built 5 sets of brick steps and retaining walls for our patio and paved area. He also built a new enclosed porch from reclaimed bricks.\n\nInternal work has ranged from laying large areas of both natural stone and timber flooring, to hanging over 30 doors, including fire doors.\n\nSam and Matt are both easy to have around. They are polite, patient, considerate and respectful and have a great work ethic. Their work is accurate and of a high standard. We already have and will continue to highly recommend their services.',
+      date: '03:20 PM - 21 July 2026'
     }
   ];
 
